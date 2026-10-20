@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b0b">
+  <meta name="description" content="Una experiencia interactiva de Halloween entre la niebla y las tumbas.">
+  <title>El Cementerio de las Sombras | Halloween</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="moon" aria-hidden="true"></div>
+  <div class="fog fog-one" aria-hidden="true"></div>
+  <div class="fog fog-two" aria-hidden="true"></div>
+  <canvas id="bats" aria-hidden="true"></canvas>
+  <div class="graveyard-silhouette" aria-hidden="true">
+    <span class="tree tree-left"></span><span class="tree tree-right"></span>
+    <span class="cross cross-one"></span><span class="cross cross-two"></span>
+    <span class="tomb tomb-one"></span><span class="tomb tomb-two"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="El Cementerio de las Sombras, inicio">☠ <span>ARCHIVOS DE LA NOCHE</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav id="mainNav" aria-label="Navegación principal">
+      <a href="#leyendas">Leyendas</a>
+      <a href="#curiosidades">Curiosidades</a>
+      <a href="#oraculo">Oráculo</a>
+      <button id="soundToggle" class="sound-toggle" type="button" aria-pressed="false">♫ Sonido: apagado</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="pulse-dot"></span> LA PUERTA SE ABRE A MEDIANOCHE</p>
+        <h1>EL CEMENTERIO<br><span>DE LAS SOMBRAS</span></h1>
+        <p class="hero-copy">La niebla esconde secretos. Las tumbas guardan historias.<br>¿Te atreves a cruzar la puerta?</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#leyendas">Entrar al cementerio <span>↗</span></a>
+          <button class="button button-ghost" id="scareButton" type="button">No mires atrás…</button>
+        </div>
+        <p class="small-note">✦ Una experiencia interactiva de Halloween ✦</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <div class="sigil">✦</div><span>31 / X</span><small>NO HAY<br>REGRESO</small>
+      </div>
+      <a class="scroll-cue" href="#leyendas"><span></span> DESLIZA PARA DESCUBRIR</a>
+    </section>
+
+    <section class="section legends-section" id="leyendas">
+      <div class="section-heading">
+        <p class="eyebrow">01 — RELATOS PROHIBIDOS</p>
+        <h2>Voces desde <em>la oscuridad</em></h2>
+        <p>Dicen que estas historias no deben leerse después de las doce…</p>
+      </div>
+      <div class="story-grid">
+        <article class="story-card story-one">
+          <div class="story-number">01</div><div class="story-symbol">☾</div>
+          <p class="card-type">LEYENDA URBANA</p>
+          <h3>La dama del camino</h3>
+          <p>Una figura vestida de blanco aparece bajo los árboles. Quienes se detienen a ayudarla descubren que su sombra no toca el suelo.</p>
+          <button class="text-button read-story" data-story="dama">Leer el relato <span>→</span></button>
+        </article>
+        <article class="story-card story-two">
+          <div class="story-number">02</div><div class="story-symbol">♜</div>
+          <p class="card-type">CUENTO DE TERROR</p>
+          <h3>La tumba vacía</h3>
+          <p>El cuidador cuenta las lápidas cada noche. Siempre hay una de más… hasta que una madrugada encuentra su propio nombre grabado.</p>
+          <button class="text-button read-story" data-story="tumba">Leer el relato <span>→</span></button>
+        </article>
+        <article class="story-card story-three">
+          <div class="story-number">03</div><div class="story-symbol">☠</div>
+          <p class="card-type">MISTERIO NOCTURNO</p>
+          <h3>El último tren</h3>
+          <p>A las 00:13 se escucha un tren en una estación abandonada. Los pasajeros que suben nunca aparecen en los registros.</p>
+          <button class="text-button read-story" data-story="tren">Leer el relato <span>→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <span class="quote-mark">“</span>
+      <blockquote>En la oscuridad, lo más aterrador no es lo que ves…<br> sino aquello que <em>te observa.</em></blockquote>
+      <p>— FRAGMENTO DEL LIBRO DE LAS SOMBRAS</p>
+    </section>
+
+    <section class="section curiosities-section" id="curiosidades">
+      <div class="section-heading">
+        <p class="eyebrow">02 — EL LADO EXTRAÑO</p>
+        <h2>Pequeños <em>misterios</em></h2>
+        <p>Datos curiosos para alimentar tus pesadillas.</p>
+      </div>
+      <div class="fact-layout">
+        <div class="fact-intro">
+          <div class="candle" aria-hidden="true"><span></span></div>
+          <h3>¿Sabías que…?</h3>
+          <p>Halloween mezcla tradiciones antiguas, relatos populares y símbolos que cambian según la cultura.</p>
+          <button class="button button-primary" id="factButton" type="button">Descubrir otro dato ↻</button>
+        </div>
+        <div class="fact-display" aria-live="polite">
+          <span class="fact-index" id="factIndex">DATO 01 / 04</span>
+          <div class="fact-icon" id="factIcon">🎃</div>
+          <h3 id="factTitle">La calabaza iluminada</h3>
+          <p id="factText">La tradición de tallar faroles se relaciona con antiguas costumbres irlandesas. Al emigrar, muchas comunidades adaptaron la tradición usando calabazas, más fáciles de conseguir en Norteamérica.</p>
+          <div class="fact-progress"><span id="factProgress"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="oracle-section" id="oraculo">
+      <div class="oracle-inner">
+        <p class="eyebrow">03 — CONSULTA A LAS SOMBRAS</p>
+        <h2>El oráculo <em>te espera</em></h2>
+        <p>Piensa en una pregunta… y deja que la noche responda.</p>
+        <div class="crystal" aria-hidden="true"><span>✦</span></div>
+        <button class="button button-primary oracle-button" id="oracleButton" type="button">Revelar mi destino</button>
+        <p class="oracle-answer" id="oracleAnswer" aria-live="polite">La niebla todavía guarda silencio…</p>
+        <p class="oracle-disclaimer">Solo por diversión. El destino sigue en tus manos.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#inicio">☠ <span>ARCHIVOS DE LA NOCHE</span></a>
+    <p>Creado para Halloween · Laboratorio de Aplicaciones II</p>
+    <a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a>
+  </footer>
+
+  <div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar relato">×</button>
+      <p class="eyebrow">ARCHIVO CLASIFICADO · NOCHE DE HALLOWEEN</p>
+      <h2 id="modalTitle">Relato</h2>
+      <div id="modalBody" class="modal-body"></div>
+      <button class="button button-primary" id="modalDone" type="button">Cerrar el archivo</button>
+    </div>
+  </div>
+  <div class="jumpscare" id="jumpscare" aria-hidden="true"><div class="scare-face">☠</div><p>TE ESTÁN OBSERVANDO</p></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
